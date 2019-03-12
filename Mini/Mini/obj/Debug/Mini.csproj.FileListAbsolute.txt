@@ -1,0 +1,10 @@
+C:\Users\Aliza Farrukh\source\repos\Mini\Mini\bin\Debug\Mini.exe.config
+C:\Users\Aliza Farrukh\source\repos\Mini\Mini\bin\Debug\Mini.exe
+C:\Users\Aliza Farrukh\source\repos\Mini\Mini\bin\Debug\Mini.pdb
+C:\Users\Aliza Farrukh\source\repos\Mini\Mini\obj\Debug\Mini.Properties.Resources.resources
+C:\Users\Aliza Farrukh\source\repos\Mini\Mini\obj\Debug\Mini.csproj.GenerateResource.cache
+C:\Users\Aliza Farrukh\source\repos\Mini\Mini\obj\Debug\Mini.csproj.CoreCompileInputs.cache
+C:\Users\Aliza Farrukh\source\repos\Mini\Mini\obj\Debug\Mini.exe
+C:\Users\Aliza Farrukh\source\repos\Mini\Mini\obj\Debug\Mini.pdb
+C:\Users\Aliza Farrukh\source\repos\Mini\Mini\obj\Debug\Mini.Home.resources
+C:\Users\Aliza Farrukh\source\repos\Mini\Mini\obj\Debug\Mini.Person.resources
