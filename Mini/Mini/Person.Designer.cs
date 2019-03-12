@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.idT = new System.Windows.Forms.TextBox();
-            this.id = new System.Windows.Forms.Label();
             this.firstName = new System.Windows.Forms.Label();
             this.lastName = new System.Windows.Forms.Label();
             this.contact = new System.Windows.Forms.Label();
@@ -42,36 +40,20 @@
             this.emailT = new System.Windows.Forms.TextBox();
             this.dobT = new System.Windows.Forms.TextBox();
             this.genderT = new System.Windows.Forms.ComboBox();
-            this.person = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.addB = new System.Windows.Forms.Button();
             this.deleteB = new System.Windows.Forms.Button();
             this.updateB = new System.Windows.Forms.Button();
             this.dataL = new System.Windows.Forms.Label();
+            this.regNoT = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // idT
-            // 
-            this.idT.Location = new System.Drawing.Point(174, 64);
-            this.idT.Name = "idT";
-            this.idT.Size = new System.Drawing.Size(100, 20);
-            this.idT.TabIndex = 0;
-            // 
-            // id
-            // 
-            this.id.AutoSize = true;
-            this.id.Location = new System.Drawing.Point(48, 71);
-            this.id.Name = "id";
-            this.id.Size = new System.Drawing.Size(18, 13);
-            this.id.TabIndex = 1;
-            this.id.Text = "ID";
-            this.id.Click += new System.EventHandler(this.label1_Click);
             // 
             // firstName
             // 
             this.firstName.AutoSize = true;
-            this.firstName.Location = new System.Drawing.Point(48, 112);
+            this.firstName.Location = new System.Drawing.Point(47, 71);
             this.firstName.Name = "firstName";
             this.firstName.Size = new System.Drawing.Size(57, 13);
             this.firstName.TabIndex = 2;
@@ -80,7 +62,7 @@
             // lastName
             // 
             this.lastName.AutoSize = true;
-            this.lastName.Location = new System.Drawing.Point(48, 153);
+            this.lastName.Location = new System.Drawing.Point(48, 120);
             this.lastName.Name = "lastName";
             this.lastName.Size = new System.Drawing.Size(58, 13);
             this.lastName.TabIndex = 3;
@@ -89,7 +71,7 @@
             // contact
             // 
             this.contact.AutoSize = true;
-            this.contact.Location = new System.Drawing.Point(48, 199);
+            this.contact.Location = new System.Drawing.Point(48, 201);
             this.contact.Name = "contact";
             this.contact.Size = new System.Drawing.Size(44, 13);
             this.contact.TabIndex = 4;
@@ -98,7 +80,7 @@
             // email
             // 
             this.email.AutoSize = true;
-            this.email.Location = new System.Drawing.Point(48, 239);
+            this.email.Location = new System.Drawing.Point(47, 239);
             this.email.Name = "email";
             this.email.Size = new System.Drawing.Size(32, 13);
             this.email.TabIndex = 5;
@@ -107,7 +89,7 @@
             // dob
             // 
             this.dob.AutoSize = true;
-            this.dob.Location = new System.Drawing.Point(48, 278);
+            this.dob.Location = new System.Drawing.Point(47, 278);
             this.dob.Name = "dob";
             this.dob.Size = new System.Drawing.Size(66, 13);
             this.dob.TabIndex = 6;
@@ -117,7 +99,7 @@
             // gender
             // 
             this.gender.AutoSize = true;
-            this.gender.Location = new System.Drawing.Point(48, 315);
+            this.gender.Location = new System.Drawing.Point(48, 319);
             this.gender.Name = "gender";
             this.gender.Size = new System.Drawing.Size(42, 13);
             this.gender.TabIndex = 7;
@@ -126,35 +108,35 @@
             // 
             // firstNameT
             // 
-            this.firstNameT.Location = new System.Drawing.Point(174, 105);
+            this.firstNameT.Location = new System.Drawing.Point(174, 71);
             this.firstNameT.Name = "firstNameT";
             this.firstNameT.Size = new System.Drawing.Size(100, 20);
             this.firstNameT.TabIndex = 8;
             // 
             // LastNameT
             // 
-            this.LastNameT.Location = new System.Drawing.Point(174, 150);
+            this.LastNameT.Location = new System.Drawing.Point(174, 117);
             this.LastNameT.Name = "LastNameT";
             this.LastNameT.Size = new System.Drawing.Size(100, 20);
             this.LastNameT.TabIndex = 9;
             // 
             // contactT
             // 
-            this.contactT.Location = new System.Drawing.Point(174, 192);
+            this.contactT.Location = new System.Drawing.Point(174, 201);
             this.contactT.Name = "contactT";
             this.contactT.Size = new System.Drawing.Size(100, 20);
             this.contactT.TabIndex = 10;
             // 
             // emailT
             // 
-            this.emailT.Location = new System.Drawing.Point(174, 236);
+            this.emailT.Location = new System.Drawing.Point(174, 239);
             this.emailT.Name = "emailT";
             this.emailT.Size = new System.Drawing.Size(100, 20);
             this.emailT.TabIndex = 11;
             // 
             // dobT
             // 
-            this.dobT.Location = new System.Drawing.Point(174, 275);
+            this.dobT.Location = new System.Drawing.Point(174, 278);
             this.dobT.Name = "dobT";
             this.dobT.Size = new System.Drawing.Size(100, 20);
             this.dobT.TabIndex = 12;
@@ -165,21 +147,11 @@
             this.genderT.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.genderT.Location = new System.Drawing.Point(174, 312);
+            this.genderT.Location = new System.Drawing.Point(174, 316);
             this.genderT.Name = "genderT";
             this.genderT.Size = new System.Drawing.Size(100, 21);
             this.genderT.TabIndex = 14;
             this.genderT.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // person
-            // 
-            this.person.AutoSize = true;
-            this.person.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.person.Location = new System.Drawing.Point(106, 9);
-            this.person.Name = "person";
-            this.person.Size = new System.Drawing.Size(100, 31);
-            this.person.TabIndex = 15;
-            this.person.Text = "Person";
             // 
             // dataGridView1
             // 
@@ -231,17 +203,34 @@
             this.dataL.Text = "Data:";
             this.dataL.Click += new System.EventHandler(this.label3_Click);
             // 
-            // Form1
+            // regNoT
+            // 
+            this.regNoT.Location = new System.Drawing.Point(174, 156);
+            this.regNoT.Name = "regNoT";
+            this.regNoT.Size = new System.Drawing.Size(100, 20);
+            this.regNoT.TabIndex = 22;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(47, 156);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(83, 13);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "Registration No.";
+            // 
+            // Person
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(927, 494);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.regNoT);
             this.Controls.Add(this.dataL);
             this.Controls.Add(this.updateB);
             this.Controls.Add(this.deleteB);
             this.Controls.Add(this.addB);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.person);
             this.Controls.Add(this.genderT);
             this.Controls.Add(this.dobT);
             this.Controls.Add(this.emailT);
@@ -254,9 +243,7 @@
             this.Controls.Add(this.contact);
             this.Controls.Add(this.lastName);
             this.Controls.Add(this.firstName);
-            this.Controls.Add(this.id);
-            this.Controls.Add(this.idT);
-            this.Name = "Form1";
+            this.Name = "Person";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -266,9 +253,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox idT;
-        private System.Windows.Forms.Label id;
         private System.Windows.Forms.Label firstName;
         private System.Windows.Forms.Label lastName;
         private System.Windows.Forms.Label contact;
@@ -287,6 +271,8 @@
         private System.Windows.Forms.Button deleteB;
         private System.Windows.Forms.Button updateB;
         private System.Windows.Forms.Label dataL;
+        private System.Windows.Forms.TextBox regNoT;
+        private System.Windows.Forms.Label label1;
     }
 }
 

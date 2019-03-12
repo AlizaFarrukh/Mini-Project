@@ -50,20 +50,42 @@ namespace Mini
 
         }
 
-        
+        int value;
+        private int GetGenderFromLookup(string gen)
+        {
+            string q;
+            if (gen == "Male")
+                q = "SELECT Id FROM Lookup where Category = 'GENDER' AND Value = 'Male'";
+            else
+                q = "SELECT Id FROM Lookup where Category = 'GENDER' AND Value = 'Female'";
+            if (conn.State==ConnectionState.Closed)
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(q, conn);
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    value = int.Parse(reader[0].ToString());
+                }     
+            }
+            return value;
+        }
 
 
         private void addB_Click(object sender, EventArgs e)
         {
-            if (firstNameT.Text != "" && LastNameT.Text != "" && contactT.Text != "" && emailT.Text != "" && dobT.Text != "")
+            if (firstNameT.Text != "" && LastNameT.Text != "" && contactT.Text != "" && emailT.Text != "" && dobT.Text != "" && genderT.Text != "" && regNoT.Text != "")
             {
-                cmd = new SqlCommand("insert into Person(FirstName,LastName,Contact,Email,DateOfBirth) values(@FirstName,@LastName,@Contact,@Email,@DateOfBirth)", conn);
+                cmd = new SqlCommand("insert into Person(FirstName,LastName,Contact,Email,DateOfBirth,Gender) values(@FirstName,@LastName,@Contact,@Email,@DateOfBirth,@gender)", conn);
                 conn.Open();
                 cmd.Parameters.AddWithValue("@FirstName", firstNameT.Text);
                 cmd.Parameters.AddWithValue("@LastName", LastNameT.Text);
                 cmd.Parameters.AddWithValue("@Contact", contactT.Text);
                 cmd.Parameters.AddWithValue("@Email", emailT.Text);
                 cmd.Parameters.AddWithValue("@DateOfBirth", dobT.Text);
+                string g = genderT.Text.ToString();
+                int gender = GetGenderFromLookup(g);
+                cmd.Parameters.AddWithValue("@gender", gender);
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 MessageBox.Show("Data Inserted Successfully");
