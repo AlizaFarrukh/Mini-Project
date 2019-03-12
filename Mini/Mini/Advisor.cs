@@ -10,24 +10,21 @@ using System.Windows.Forms;
 
 namespace Mini
 {
-    public partial class Home : Form
+    public partial class Advisor : Form
     {
-        public Home()
+        public Advisor()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void CONT_TextChanged(object sender, EventArgs e)
         {
-            Student home = new Student();
-            home.Show();
 
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void label3_Click(object sender, EventArgs e)
         {
-            Advisor AD = new Advisor();
-            AD.Show();
+
         }
     }
 }

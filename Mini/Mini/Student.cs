@@ -11,13 +11,13 @@ using System.Data.SqlClient;
 
 namespace Mini
 {
-    public partial class Person : Form
+    public partial class Student : Form
     {
         SqlConnection conn = new SqlConnection(@"Data Source=HAIER-PC\SQLEXPRESS;Initial Catalog=ProjectA;Integrated Security=True");
         SqlCommand cmd;
         SqlDataAdapter prog;
         int Id = 0;
-        public Person()
+        public Student()
         {
             InitializeComponent();
         }
