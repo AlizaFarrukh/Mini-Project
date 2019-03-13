@@ -40,7 +40,6 @@
             this.LNT = new System.Windows.Forms.TextBox();
             this.CONT = new System.Windows.Forms.TextBox();
             this.EMAILT = new System.Windows.Forms.TextBox();
-            this.DOBT = new System.Windows.Forms.TextBox();
             this.SALARYT = new System.Windows.Forms.TextBox();
             this.DESGT = new System.Windows.Forms.TextBox();
             this.GENT = new System.Windows.Forms.ComboBox();
@@ -50,6 +49,7 @@
             this.adda_b = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
+            this.DOBT = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,9 +59,9 @@
             this.label1.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(49, 52);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 19);
+            this.label1.Size = new System.Drawing.Size(89, 19);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Fiirst Name";
+            this.label1.Text = "First Name";
             // 
             // label2
             // 
@@ -140,6 +140,8 @@
             this.FNT.Name = "FNT";
             this.FNT.Size = new System.Drawing.Size(100, 20);
             this.FNT.TabIndex = 8;
+            this.FNT.TextChanged += new System.EventHandler(this.FNT_TextChanged);
+            this.FNT.Validating += new System.ComponentModel.CancelEventHandler(this.FNT_Validating);
             // 
             // LNT
             // 
@@ -147,6 +149,7 @@
             this.LNT.Name = "LNT";
             this.LNT.Size = new System.Drawing.Size(100, 20);
             this.LNT.TabIndex = 9;
+            this.LNT.Validating += new System.ComponentModel.CancelEventHandler(this.LNT_Validating);
             // 
             // CONT
             // 
@@ -155,6 +158,7 @@
             this.CONT.Size = new System.Drawing.Size(100, 20);
             this.CONT.TabIndex = 10;
             this.CONT.TextChanged += new System.EventHandler(this.CONT_TextChanged);
+            this.CONT.Validating += new System.ComponentModel.CancelEventHandler(this.CONT_Validating);
             // 
             // EMAILT
             // 
@@ -162,13 +166,7 @@
             this.EMAILT.Name = "EMAILT";
             this.EMAILT.Size = new System.Drawing.Size(100, 20);
             this.EMAILT.TabIndex = 11;
-            // 
-            // DOBT
-            // 
-            this.DOBT.Location = new System.Drawing.Point(169, 226);
-            this.DOBT.Name = "DOBT";
-            this.DOBT.Size = new System.Drawing.Size(100, 20);
-            this.DOBT.TabIndex = 12;
+            this.EMAILT.Validating += new System.ComponentModel.CancelEventHandler(this.EMAILT_Validating);
             // 
             // SALARYT
             // 
@@ -243,6 +241,7 @@
             this.adda_b.TabIndex = 20;
             this.adda_b.Text = "ADD";
             this.adda_b.UseVisualStyleBackColor = false;
+            this.adda_b.Click += new System.EventHandler(this.adda_b_Click);
             // 
             // dataGridView1
             // 
@@ -263,12 +262,20 @@
             this.label9.TabIndex = 24;
             this.label9.Text = "Data:";
             // 
+            // DOBT
+            // 
+            this.DOBT.Location = new System.Drawing.Point(169, 218);
+            this.DOBT.Name = "DOBT";
+            this.DOBT.Size = new System.Drawing.Size(100, 20);
+            this.DOBT.TabIndex = 25;
+            // 
             // Advisor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MintCream;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.DOBT);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.adda_b);
@@ -278,7 +285,6 @@
             this.Controls.Add(this.GENT);
             this.Controls.Add(this.DESGT);
             this.Controls.Add(this.SALARYT);
-            this.Controls.Add(this.DOBT);
             this.Controls.Add(this.EMAILT);
             this.Controls.Add(this.CONT);
             this.Controls.Add(this.LNT);
@@ -314,7 +320,6 @@
         private System.Windows.Forms.TextBox LNT;
         private System.Windows.Forms.TextBox CONT;
         private System.Windows.Forms.TextBox EMAILT;
-        private System.Windows.Forms.TextBox DOBT;
         private System.Windows.Forms.TextBox SALARYT;
         private System.Windows.Forms.TextBox DESGT;
         private System.Windows.Forms.ComboBox GENT;
@@ -324,5 +329,6 @@
         private System.Windows.Forms.Button adda_b;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DateTimePicker DOBT;
     }
 }

@@ -8,15 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-
+using System.Text.RegularExpressions;
 namespace Mini
 {
     public partial class Student : Form
     {
-        SqlConnection conn = new SqlConnection(@"Data Source=HAIER-PC\SQLEXPRESS;Initial Catalog=ProjectA;Integrated Security=True");
+        SqlConnection conn = new SqlConnection(@"Data Source=HAIER-PC\SQLEXPRESS;Initial Catalog=ProjectA;MultipleActiveResultSets=true;Integrated Security=True");
         SqlCommand cmd;
         SqlDataAdapter prog;
         int Id = 0;
+
         public Student()
         {
             InitializeComponent();
@@ -37,6 +38,7 @@ namespace Mini
             contactT.Text = "";
             emailT.Text = "";
             dobT.Text = "";
+            genderT.Text = "";
             Id = 0;
         }
 
@@ -50,24 +52,26 @@ namespace Mini
 
         }
 
-        int value;
+       
         private int GetGenderFromLookup(string gen)
         {
+            int value = 0;
             string q;
             if (gen == "Male")
-                q = "SELECT Id FROM Lookup where Category = 'GENDER' AND Value = 'Male'";
+                q = "SELECT Id FROM Lookup where Category = 'GENDER' AND Value = '"+gen+"'";
             else
                 q = "SELECT Id FROM Lookup where Category = 'GENDER' AND Value = 'Female'";
-            if (conn.State==ConnectionState.Closed)
+            if (conn.State == ConnectionState.Closed)
             {
                 conn.Open();
+            }
                 SqlCommand cmd = new SqlCommand(q, conn);
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
                     value = int.Parse(reader[0].ToString());
                 }     
-            }
+            
             return value;
         }
 
@@ -82,7 +86,7 @@ namespace Mini
                 cmd.Parameters.AddWithValue("@LastName", LastNameT.Text);
                 cmd.Parameters.AddWithValue("@Contact", contactT.Text);
                 cmd.Parameters.AddWithValue("@Email", emailT.Text);
-                cmd.Parameters.AddWithValue("@DateOfBirth", dobT.Text);
+                cmd.Parameters.AddWithValue("@DateOfBirth", DateTime.Parse( dobT.Text));
                 string g = genderT.Text.ToString();
                 int gender = GetGenderFromLookup(g);
                 cmd.Parameters.AddWithValue("@gender", gender);
@@ -103,7 +107,7 @@ namespace Mini
         {
             if (firstNameT.Text != "" && LastNameT.Text != "" && contactT.Text != "" && emailT.Text != "" && dobT.Text != "")
             {
-                cmd = new SqlCommand("update Person set FirstName=@firstName,LastName=@lastName, Contact=@Contact, Email=@email, DateOfBirth=@dob where Id=@id", conn);
+                cmd = new SqlCommand("update Person set FirstName=@firstName,LastName=@lastName, Contact=@Contact, Email=@email, DateOfBirth=@dob, Gender=@gender where Id=@id", conn);
                 conn.Open();
                 cmd.Parameters.AddWithValue("@id", Id);
                 cmd.Parameters.AddWithValue("@firstName", firstNameT.Text);
@@ -111,6 +115,9 @@ namespace Mini
                 cmd.Parameters.AddWithValue("@Contact", contactT.Text);
                 cmd.Parameters.AddWithValue("@email", emailT.Text);
                 cmd.Parameters.AddWithValue("@dob", dobT.Text);
+                string g = genderT.Text.ToString();
+                int gender = GetGenderFromLookup(g);
+                cmd.Parameters.AddWithValue("@gender", gender);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Data Updated Successfully");
                 conn.Close();
@@ -189,6 +196,67 @@ namespace Mini
             contactT.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
             emailT.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
             dobT.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+            genderT.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
+
+        }
+
+        private void emailT_Validating(object sender, CancelEventArgs e)
+        {
+            if (!Regex.IsMatch(emailT.Text, @"^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$"))
+            {
+                MessageBox.Show("Enter valid Email address");
+                emailT.SelectAll();
+                e.Cancel = true;
+            }
+        }
+
+        private void firstNameT_Validating(object sender, CancelEventArgs e)
+        {
+            if (!Regex.Match(firstNameT.Text, "^[A-Z][a-zA-Z]*$").Success)
+            {
+                // first name was incorrect
+                MessageBox.Show("Please Enter Valid First name");
+                firstNameT.Focus();
+                e.Cancel = true;
+                
+            }
+
+        }
+
+        private void LastNameT_Validating(object sender, CancelEventArgs e)
+        {
+            if (!Regex.Match(LastNameT.Text, "^[A-Z][a-zA-Z]*$").Success)
+            {
+                // first name was incorrect
+                MessageBox.Show("Please Enter Valid Last name");
+                LastNameT.SelectAll();
+                e.Cancel = true;
+
+            }
+        }
+
+        private void contactT_Validating(object sender, CancelEventArgs e)
+        {
+
+            Regex validator = new Regex("^[0-9]{10,12}$");
+            string match = validator.Match(contactT.Text).Value.ToString();
+            if (match.Length != 11)
+            {
+                MessageBox.Show("invalid phone number. Enter 0-11 digits");
+                contactT.Focus();
+
+            }
+        }
+
+        private void contactT_TextChanged(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void emailT_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

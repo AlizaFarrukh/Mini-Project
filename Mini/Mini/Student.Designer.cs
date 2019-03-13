@@ -38,7 +38,6 @@
             this.LastNameT = new System.Windows.Forms.TextBox();
             this.contactT = new System.Windows.Forms.TextBox();
             this.emailT = new System.Windows.Forms.TextBox();
-            this.dobT = new System.Windows.Forms.TextBox();
             this.genderT = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.addB = new System.Windows.Forms.Button();
@@ -48,6 +47,7 @@
             this.regNoT = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.personBH = new System.Windows.Forms.Button();
+            this.dobT = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -119,6 +119,7 @@
             this.firstNameT.Name = "firstNameT";
             this.firstNameT.Size = new System.Drawing.Size(100, 20);
             this.firstNameT.TabIndex = 8;
+            this.firstNameT.Validating += new System.ComponentModel.CancelEventHandler(this.firstNameT_Validating);
             // 
             // LastNameT
             // 
@@ -126,6 +127,7 @@
             this.LastNameT.Name = "LastNameT";
             this.LastNameT.Size = new System.Drawing.Size(100, 20);
             this.LastNameT.TabIndex = 9;
+            this.LastNameT.Validating += new System.ComponentModel.CancelEventHandler(this.LastNameT_Validating);
             // 
             // contactT
             // 
@@ -133,6 +135,8 @@
             this.contactT.Name = "contactT";
             this.contactT.Size = new System.Drawing.Size(100, 20);
             this.contactT.TabIndex = 10;
+            this.contactT.TextChanged += new System.EventHandler(this.contactT_TextChanged);
+            this.contactT.Validating += new System.ComponentModel.CancelEventHandler(this.contactT_Validating);
             // 
             // emailT
             // 
@@ -140,13 +144,8 @@
             this.emailT.Name = "emailT";
             this.emailT.Size = new System.Drawing.Size(100, 20);
             this.emailT.TabIndex = 11;
-            // 
-            // dobT
-            // 
-            this.dobT.Location = new System.Drawing.Point(174, 278);
-            this.dobT.Name = "dobT";
-            this.dobT.Size = new System.Drawing.Size(100, 20);
-            this.dobT.TabIndex = 12;
+            this.emailT.TextChanged += new System.EventHandler(this.emailT_TextChanged);
+            this.emailT.Validating += new System.ComponentModel.CancelEventHandler(this.emailT_Validating);
             // 
             // genderT
             // 
@@ -166,7 +165,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(332, 71);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(712, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(712, 267);
             this.dataGridView1.TabIndex = 16;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_2);
             // 
@@ -188,7 +187,7 @@
             this.deleteB.BackColor = System.Drawing.Color.Teal;
             this.deleteB.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold);
             this.deleteB.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.deleteB.Location = new System.Drawing.Point(716, 278);
+            this.deleteB.Location = new System.Drawing.Point(717, 358);
             this.deleteB.Name = "deleteB";
             this.deleteB.Size = new System.Drawing.Size(86, 40);
             this.deleteB.TabIndex = 18;
@@ -201,7 +200,7 @@
             this.updateB.BackColor = System.Drawing.Color.Teal;
             this.updateB.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold);
             this.updateB.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.updateB.Location = new System.Drawing.Point(547, 278);
+            this.updateB.Location = new System.Drawing.Point(543, 358);
             this.updateB.Name = "updateB";
             this.updateB.Size = new System.Drawing.Size(90, 40);
             this.updateB.TabIndex = 20;
@@ -250,12 +249,20 @@
             this.personBH.Text = "STUDENT";
             this.personBH.UseVisualStyleBackColor = false;
             // 
+            // dobT
+            // 
+            this.dobT.Location = new System.Drawing.Point(174, 278);
+            this.dobT.Name = "dobT";
+            this.dobT.Size = new System.Drawing.Size(106, 20);
+            this.dobT.TabIndex = 26;
+            // 
             // Student
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MintCream;
             this.ClientSize = new System.Drawing.Size(927, 494);
+            this.Controls.Add(this.dobT);
             this.Controls.Add(this.personBH);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.regNoT);
@@ -265,7 +272,6 @@
             this.Controls.Add(this.addB);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.genderT);
-            this.Controls.Add(this.dobT);
             this.Controls.Add(this.emailT);
             this.Controls.Add(this.contactT);
             this.Controls.Add(this.LastNameT);
@@ -297,7 +303,6 @@
         private System.Windows.Forms.TextBox LastNameT;
         private System.Windows.Forms.TextBox contactT;
         private System.Windows.Forms.TextBox emailT;
-        private System.Windows.Forms.TextBox dobT;
         private System.Windows.Forms.ComboBox genderT;
         private System.Windows.Forms.Label person;
         private System.Windows.Forms.DataGridView dataGridView1;
@@ -308,6 +313,7 @@
         private System.Windows.Forms.TextBox regNoT;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button personBH;
+        private System.Windows.Forms.DateTimePicker dobT;
     }
 }
 
