@@ -228,7 +228,7 @@ namespace Mini
             if (!Regex.Match(LastNameT.Text, "^[A-Z][a-zA-Z]*$").Success)
             {
                 // first name was incorrect
-                MessageBox.Show("Please Enter Valid Last name");
+                MessageBox.Show("Please Enter Valid Last Name");
                 LastNameT.SelectAll();
                 e.Cancel = true;
 

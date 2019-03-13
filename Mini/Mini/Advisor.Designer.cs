@@ -41,7 +41,6 @@
             this.CONT = new System.Windows.Forms.TextBox();
             this.EMAILT = new System.Windows.Forms.TextBox();
             this.SALARYT = new System.Windows.Forms.TextBox();
-            this.DESGT = new System.Windows.Forms.TextBox();
             this.GENT = new System.Windows.Forms.ComboBox();
             this.personBH = new System.Windows.Forms.Button();
             this.deletea_b = new System.Windows.Forms.Button();
@@ -50,6 +49,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
             this.DOBT = new System.Windows.Forms.DateTimePicker();
+            this.DESGT = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -174,13 +174,7 @@
             this.SALARYT.Name = "SALARYT";
             this.SALARYT.Size = new System.Drawing.Size(100, 20);
             this.SALARYT.TabIndex = 14;
-            // 
-            // DESGT
-            // 
-            this.DESGT.Location = new System.Drawing.Point(169, 301);
-            this.DESGT.Name = "DESGT";
-            this.DESGT.Size = new System.Drawing.Size(100, 20);
-            this.DESGT.TabIndex = 15;
+            this.SALARYT.Validating += new System.ComponentModel.CancelEventHandler(this.SALARYT_Validating);
             // 
             // GENT
             // 
@@ -217,6 +211,7 @@
             this.deletea_b.TabIndex = 18;
             this.deletea_b.Text = "DELETE";
             this.deletea_b.UseVisualStyleBackColor = false;
+            this.deletea_b.Click += new System.EventHandler(this.deletea_b_Click);
             // 
             // updatea_b
             // 
@@ -229,6 +224,7 @@
             this.updatea_b.TabIndex = 19;
             this.updatea_b.Text = "UPDATE";
             this.updatea_b.UseVisualStyleBackColor = false;
+            this.updatea_b.Click += new System.EventHandler(this.updatea_b_Click);
             // 
             // adda_b
             // 
@@ -269,12 +265,27 @@
             this.DOBT.Size = new System.Drawing.Size(100, 20);
             this.DOBT.TabIndex = 25;
             // 
+            // DESGT
+            // 
+            this.DESGT.FormattingEnabled = true;
+            this.DESGT.Items.AddRange(new object[] {
+            "Professor",
+            "Assosiate Professor",
+            "Assisstant Professor",
+            "Lecturer",
+            "Idustry Professional"});
+            this.DESGT.Location = new System.Drawing.Point(169, 299);
+            this.DESGT.Name = "DESGT";
+            this.DESGT.Size = new System.Drawing.Size(100, 21);
+            this.DESGT.TabIndex = 26;
+            // 
             // Advisor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MintCream;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.DESGT);
             this.Controls.Add(this.DOBT);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.dataGridView1);
@@ -283,7 +294,6 @@
             this.Controls.Add(this.deletea_b);
             this.Controls.Add(this.personBH);
             this.Controls.Add(this.GENT);
-            this.Controls.Add(this.DESGT);
             this.Controls.Add(this.SALARYT);
             this.Controls.Add(this.EMAILT);
             this.Controls.Add(this.CONT);
@@ -321,7 +331,6 @@
         private System.Windows.Forms.TextBox CONT;
         private System.Windows.Forms.TextBox EMAILT;
         private System.Windows.Forms.TextBox SALARYT;
-        private System.Windows.Forms.TextBox DESGT;
         private System.Windows.Forms.ComboBox GENT;
         private System.Windows.Forms.Button personBH;
         private System.Windows.Forms.Button deletea_b;
@@ -330,5 +339,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker DOBT;
+        private System.Windows.Forms.ComboBox DESGT;
     }
 }

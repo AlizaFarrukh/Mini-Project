@@ -77,6 +77,38 @@ namespace Mini
 
             return value;
         }
+        private int GetDesignationFromLookup(string gen)
+        {
+            int value = 0;
+            string q;
+            if (gen == "Professor")
+                q = "SELECT Id FROM Lookup where Category = 'DESIGNATION' AND Value = '" + gen + "'";
+            else if (gen == " Associate Professor")
+                q = "SELECT Id FROM Lookup where Category = 'DESIGNATION' AND Value = '" + gen + "'";
+            else if (gen == "Assisstant Professor")
+                q = "SELECT Id FROM Lookup where Category = 'DESIGNATION' AND Value = '" + gen + "'";
+            else if (gen == "Lecturer")
+                q = "SELECT Id FROM Lookup where Category = 'DESIGNATION' AND Value = '" + gen + "'";
+            else
+              
+                q = "SELECT Id FROM Lookup where Category = 'DESIGNATION' AND Value = '" + gen + "'";
+
+            if (conn.State == ConnectionState.Closed)
+            {
+                conn.Open();
+            }
+            SqlCommand cmd = new SqlCommand(q, conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                value = int.Parse(reader[0].ToString());
+            }
+
+            return value;
+        }
+
+
+
         private void adda_b_Click(object sender, EventArgs e)
         {
             if (FNT.Text != "" && LNT.Text != "" && CONT.Text != "" && EMAILT.Text != "" && DOBT.Text != "" && GENT.Text != "" && DESGT.Text != "" && SALARYT.Text != "")
@@ -153,6 +185,82 @@ namespace Mini
                 MessageBox.Show("Enter valid Email address");
                 EMAILT.SelectAll();
                 e.Cancel = true;
+            }
+        }
+
+        private void SALARYT_Validating(object sender, CancelEventArgs e)
+        {
+            Regex validator = new Regex("^[0-9]{10,12}$");
+            string match = validator.Match(CONT.Text).Value.ToString();
+            if (match.Length > 7)
+            {
+                MessageBox.Show("invalid phone number. Enter 0-11 digits");
+                CONT.Focus();
+
+            }
+        }
+
+       
+
+        private void dataGridView1_CellContentClick_2(object sender, DataGridViewCellEventArgs e)
+        {
+            Id = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+            FNT.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            LNT.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            CONT.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            EMAILT.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+           DOBT.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+            GENT.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
+            DESGT.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
+            SALARYT.Text = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
+
+        }
+
+        private void updatea_b_Click(object sender, EventArgs e)
+        {
+            if (FNT.Text != "" && LNT.Text != "" && CONT.Text != "" && EMAILT.Text != "" && DOBT.Text != "" && GENT.Text != "" && DESGT.Text != "" && SALARYT.Text != "")
+            {
+                cmd = new SqlCommand("update Person set FirstName=@firstName,LastName=@lastName, Contact=@Contact, Email=@email, DateOfBirth=@dob, Gender=@gender where Id=@id", conn);
+                conn.Open();
+                cmd.Parameters.AddWithValue("@id", Id);
+                cmd.Parameters.AddWithValue("@firstName", FNT.Text);
+                cmd.Parameters.AddWithValue("@lastName", LNT.Text);
+                cmd.Parameters.AddWithValue("@Contact", CONT.Text);
+                cmd.Parameters.AddWithValue("@email", EMAILT.Text);
+                cmd.Parameters.AddWithValue("@dob", DOBT.Text);
+                string g = GENT.Text.ToString();
+                int gender = GetGenderFromLookup(g);
+                cmd.Parameters.AddWithValue("@gender", gender);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Data Updated Successfully");
+                conn.Close();
+                DisplayData();
+                ClearData();
+            }
+            else
+            {
+                MessageBox.Show("Please Select Data to Update");
+            }
+        }
+
+        private void deletea_b_Click(object sender, EventArgs e)
+        {
+
+            if (Id != 0)
+            {
+                cmd = new SqlCommand("delete Person where ID=@id", conn);
+                conn.Open();
+                cmd.Parameters.AddWithValue("@id", Id);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                MessageBox.Show("Data Deleted Successfully!");
+                DisplayData();
+                ClearData();
+            }
+
+            else
+            {
+                MessageBox.Show("Please Select Data to Delete");
             }
         }
     }
