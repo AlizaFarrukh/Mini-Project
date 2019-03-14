@@ -29,5 +29,22 @@ namespace Mini
             Advisor AD = new Advisor();
             AD.Show();
         }
+
+        private void projectB_Click(object sender, EventArgs e)
+        {
+            Project pr = new Project();
+            pr.Show();
+        }
+
+        private void evaluation_Click(object sender, EventArgs e)
+        {
+            Evaluation eva = new Evaluation();
+            eva.Show();
+        }
+
+        private void Home_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -24,9 +24,9 @@ namespace Mini
         }
         private void DisplayData()
         {
-            conn.Open();
+            
             DataTable dt = new DataTable();
-            prog = new SqlDataAdapter("select * from Person", conn);
+            prog = new SqlDataAdapter("select Person.Id,FirstName,LastName, Contact, Email, DateOfBirth,Gender, Designation,Salary from Person join Advisor on Person.Id = Advisor.Id", conn);
             prog.Fill(dt);
             dataGridView1.DataSource = dt;
             conn.Close();
@@ -111,29 +111,43 @@ namespace Mini
 
         private void adda_b_Click(object sender, EventArgs e)
         {
-            if (FNT.Text != "" && LNT.Text != "" && CONT.Text != "" && EMAILT.Text != "" && DOBT.Text != "" && GENT.Text != "" && DESGT.Text != "" && SALARYT.Text != "")
+            conn.Open();
+            string gender = GENT.SelectedItem.ToString();
+            string genId = "select Id FROM Lookup WHERE Category = 'Gender' AND value ='" + gender + "'";
+            SqlCommand genint = new SqlCommand(genId, conn);
+            int v = 0;
+            SqlDataReader reader = genint.ExecuteReader();
+            while (reader.Read())
             {
-                cmd = new SqlCommand("insert into Person(FirstName,LastName,Contact,Email,DateOfBirth,Gender) values(@FirstName,@LastName,@Contact,@Email,@DateOfBirth,@gender)", conn);
-                conn.Open();
-                cmd.Parameters.AddWithValue("@FirstName", FNT.Text);
-                cmd.Parameters.AddWithValue("@LastName",LNT.Text);
-                cmd.Parameters.AddWithValue("@Contact", CONT.Text);
-                cmd.Parameters.AddWithValue("@Email", EMAILT.Text);
-                cmd.Parameters.AddWithValue("@DateOfBirth", DateTime.Parse(DOBT.Text));
-                string g = GENT.Text.ToString();
-                int gender = GetGenderFromLookup(g);
-                cmd.Parameters.AddWithValue("@gender", gender);
-                cmd.ExecuteNonQuery();
-                conn.Close();
-                MessageBox.Show("Data Inserted Successfully");
-                DisplayData();
-                ClearData();
+                v = int.Parse(reader[0].ToString());
+            }
 
-            }
-            else
+            string designation = DESGT.SelectedItem.ToString();
+            string desID = "select Id FROM Lookup WHERE Category = 'DESIGNATION' AND value ='" + designation + "'";
+            SqlCommand desint = new SqlCommand(desID, conn);
+            int v2 = 0;
+            SqlDataReader reader1 = desint.ExecuteReader();
+            while (reader1.Read())
             {
-                MessageBox.Show("Please Enter Details!");
+                v2 = int.Parse(reader1[0].ToString());
             }
+
+            string per = "INSERT into Person(FirstName , LastName , Contact, Email , DateOfBirth , Gender) values ('" + FNT.Text + "' , '" + LNT.Text + "' , '" +CONT.Text + "' , '" + EMAILT.Text + "' , '" + DateTime.Parse(DOBT.Text) + "' , '" + v + "')";
+            SqlCommand persi = new SqlCommand(per, conn);
+            int ii = persi.ExecuteNonQuery();
+            int value1 = 0;
+            string query = "Select Id from Person where (Id = SCOPE_IDENTITY())";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            var val = cmd.ExecuteScalar().ToString();
+            value1 = int.Parse(val);
+            string q = "insert into Advisor values('" + value1 + "','" + v2 + "','" + SALARYT.Text + "')";
+            SqlCommand cmd1 = new SqlCommand(q, conn);
+            int ji = cmd1.ExecuteNonQuery();
+            
+                MessageBox.Show("Advisor is Registered");
+           
+            DisplayData();
+            conn.Close();
         }
 
         private void FNT_TextChanged(object sender, EventArgs e)
@@ -262,6 +276,12 @@ namespace Mini
             {
                 MessageBox.Show("Please Select Data to Delete");
             }
+        }
+
+        private void Advisor_Load(object sender, EventArgs e)
+        {
+            DisplayData();
+           
         }
     }
 }

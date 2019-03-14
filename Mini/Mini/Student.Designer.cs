@@ -43,7 +43,6 @@
             this.addB = new System.Windows.Forms.Button();
             this.deleteB = new System.Windows.Forms.Button();
             this.updateB = new System.Windows.Forms.Button();
-            this.dataL = new System.Windows.Forms.Label();
             this.regNoT = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.personBH = new System.Windows.Forms.Button();
@@ -163,7 +162,7 @@
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.MintCream;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(332, 71);
+            this.dataGridView1.Location = new System.Drawing.Point(316, 71);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(712, 267);
             this.dataGridView1.TabIndex = 16;
@@ -187,7 +186,7 @@
             this.deleteB.BackColor = System.Drawing.Color.Teal;
             this.deleteB.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold);
             this.deleteB.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.deleteB.Location = new System.Drawing.Point(717, 358);
+            this.deleteB.Location = new System.Drawing.Point(712, 363);
             this.deleteB.Name = "deleteB";
             this.deleteB.Size = new System.Drawing.Size(86, 40);
             this.deleteB.TabIndex = 18;
@@ -200,7 +199,7 @@
             this.updateB.BackColor = System.Drawing.Color.Teal;
             this.updateB.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold);
             this.updateB.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.updateB.Location = new System.Drawing.Point(543, 358);
+            this.updateB.Location = new System.Drawing.Point(541, 363);
             this.updateB.Name = "updateB";
             this.updateB.Size = new System.Drawing.Size(90, 40);
             this.updateB.TabIndex = 20;
@@ -208,23 +207,13 @@
             this.updateB.UseVisualStyleBackColor = false;
             this.updateB.Click += new System.EventHandler(this.updateB_Click);
             // 
-            // dataL
-            // 
-            this.dataL.AutoSize = true;
-            this.dataL.Font = new System.Drawing.Font("Cambria", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataL.Location = new System.Drawing.Point(581, 40);
-            this.dataL.Name = "dataL";
-            this.dataL.Size = new System.Drawing.Size(71, 28);
-            this.dataL.TabIndex = 21;
-            this.dataL.Text = "Data:";
-            this.dataL.Click += new System.EventHandler(this.label3_Click);
-            // 
             // regNoT
             // 
             this.regNoT.Location = new System.Drawing.Point(174, 156);
             this.regNoT.Name = "regNoT";
             this.regNoT.Size = new System.Drawing.Size(100, 20);
             this.regNoT.TabIndex = 22;
+            this.regNoT.Validating += new System.ComponentModel.CancelEventHandler(this.regNoT_Validating);
             // 
             // label1
             // 
@@ -242,9 +231,9 @@
             this.personBH.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.personBH.Font = new System.Drawing.Font("Monotype Corsiva", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.personBH.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.personBH.Location = new System.Drawing.Point(300, 0);
+            this.personBH.Location = new System.Drawing.Point(209, 0);
             this.personBH.Name = "personBH";
-            this.personBH.Size = new System.Drawing.Size(171, 44);
+            this.personBH.Size = new System.Drawing.Size(439, 65);
             this.personBH.TabIndex = 24;
             this.personBH.Text = "STUDENT";
             this.personBH.UseVisualStyleBackColor = false;
@@ -266,7 +255,6 @@
             this.Controls.Add(this.personBH);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.regNoT);
-            this.Controls.Add(this.dataL);
             this.Controls.Add(this.updateB);
             this.Controls.Add(this.deleteB);
             this.Controls.Add(this.addB);
@@ -309,7 +297,6 @@
         private System.Windows.Forms.Button addB;
         private System.Windows.Forms.Button deleteB;
         private System.Windows.Forms.Button updateB;
-        private System.Windows.Forms.Label dataL;
         private System.Windows.Forms.TextBox regNoT;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button personBH;

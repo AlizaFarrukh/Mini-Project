@@ -24,9 +24,9 @@ namespace Mini
         }
         private void DisplayData()
         {
-            conn.Open();
+            
             DataTable dt = new DataTable();
-            prog = new SqlDataAdapter("select * from Person", conn);
+            prog = new SqlDataAdapter("select Person.Id,FirstName,LastName, RegistrationNo, Contact, Email, DateOfBirth,Gender from Person join Student on Person.Id = Student.Id", conn);
             prog.Fill(dt);
             dataGridView1.DataSource = dt;
             conn.Close();
@@ -78,29 +78,43 @@ namespace Mini
 
         private void addB_Click(object sender, EventArgs e)
         {
-            if (firstNameT.Text != "" && LastNameT.Text != "" && contactT.Text != "" && emailT.Text != "" && dobT.Text != "" && genderT.Text != "" && regNoT.Text != "")
-            {
-                cmd = new SqlCommand("insert into Person(FirstName,LastName,Contact,Email,DateOfBirth,Gender) values(@FirstName,@LastName,@Contact,@Email,@DateOfBirth,@gender)", conn);
-                conn.Open();
-                cmd.Parameters.AddWithValue("@FirstName", firstNameT.Text);
-                cmd.Parameters.AddWithValue("@LastName", LastNameT.Text);
-                cmd.Parameters.AddWithValue("@Contact", contactT.Text);
-                cmd.Parameters.AddWithValue("@Email", emailT.Text);
-                cmd.Parameters.AddWithValue("@DateOfBirth", DateTime.Parse( dobT.Text));
-                string g = genderT.Text.ToString();
-                int gender = GetGenderFromLookup(g);
-                cmd.Parameters.AddWithValue("@gender", gender);
-                cmd.ExecuteNonQuery();
-                conn.Close();
-                MessageBox.Show("Data Inserted Successfully");
-                DisplayData();
-                ClearData();
+            conn.Open();
 
-            }
-            else
+            string gend = genderT.SelectedItem.ToString();
+
+            string genderValue = "select Id FROM Lookup WHERE Category = 'Gender' AND value ='" + gend + "'";
+            SqlCommand genderInt = new SqlCommand(genderValue, conn);
+            int gendr = 0;
+            SqlDataReader reader = genderInt.ExecuteReader();
+            
+            while (reader.Read())
             {
-                MessageBox.Show("Please Enter Details!");
+                gendr = int.Parse(reader[0].ToString());
             }
+
+           
+
+            string per = "INSERT into Person(FirstName , LastName , Contact , Email , DateOfBirth , Gender) values ('" + firstNameT.Text + "' , '" + LastNameT.Text + "' , '" + contactT.Text + "' , '" + emailT.Text + "' , '" + DateTime.Parse(dobT.Text) + "' , '" + gendr + "')";
+
+            SqlCommand person = new SqlCommand(per, conn);
+            int ii = person.ExecuteNonQuery();
+            int value1 = 0;
+            string query = "Select Id from Person where (Id = SCOPE_IDENTITY())";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            var val = cmd.ExecuteScalar().ToString();
+            value1 = int.Parse(val);
+            string q = "insert into Student values('" + value1 + "','" + regNoT.Text.ToString() + "')";
+            SqlCommand cmd1 = new SqlCommand(q, conn);
+            int ji = cmd1.ExecuteNonQuery();
+           
+            MessageBox.Show("Student is registered");
+            
+               
+           
+            DisplayData();
+            conn.Close();
+
+
         }
 
         private void updateB_Click(object sender, EventArgs e)
@@ -215,7 +229,7 @@ namespace Mini
             if (!Regex.Match(firstNameT.Text, "^[A-Z][a-zA-Z]*$").Success)
             {
                 // first name was incorrect
-                MessageBox.Show("Please Enter Valid First name");
+                MessageBox.Show("Please Enter Valid First name.  it must start with Capital Letter");
                 firstNameT.Focus();
                 e.Cancel = true;
                 
@@ -228,7 +242,7 @@ namespace Mini
             if (!Regex.Match(LastNameT.Text, "^[A-Z][a-zA-Z]*$").Success)
             {
                 // first name was incorrect
-                MessageBox.Show("Please Enter Valid Last Name");
+                MessageBox.Show("Please Enter Valid Last Name. it must start with Capital Letter");
                 LastNameT.SelectAll();
                 e.Cancel = true;
 
@@ -257,6 +271,19 @@ namespace Mini
         private void emailT_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void regNoT_Validating(object sender, CancelEventArgs e)
+        {
+
+            if (!Regex.Match(regNoT.Text, "^[0-9]{4}-[A-Z]{2}-[0-9]{2,3}$").Success)
+            {
+                
+                MessageBox.Show("Please Enter Registration Number  of the format 2016-CE-62");
+                regNoT.SelectAll();
+                e.Cancel = true;
+
+            }
         }
     }
 }
