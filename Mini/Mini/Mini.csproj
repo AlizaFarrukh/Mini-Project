@@ -65,6 +65,18 @@
     <Compile Include="Evaluation.Designer.cs">
       <DependentUpon>Evaluation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Group.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Group.Designer.cs">
+      <DependentUpon>Group.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GroupStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GroupStudent.Designer.cs">
+      <DependentUpon>GroupStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Project.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +102,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Evaluation.resx">
       <DependentUpon>Evaluation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Group.resx">
+      <DependentUpon>Group.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GroupStudent.resx">
+      <DependentUpon>GroupStudent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Project.resx">
       <DependentUpon>Project.cs</DependentUpon>
