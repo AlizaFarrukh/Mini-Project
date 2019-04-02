@@ -50,7 +50,7 @@
             this.personBH.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.personBH.Location = new System.Drawing.Point(173, -1);
             this.personBH.Name = "personBH";
-            this.personBH.Size = new System.Drawing.Size(399, 63);
+            this.personBH.Size = new System.Drawing.Size(474, 63);
             this.personBH.TabIndex = 19;
             this.personBH.Text = "EVALUATION";
             this.personBH.UseVisualStyleBackColor = false;

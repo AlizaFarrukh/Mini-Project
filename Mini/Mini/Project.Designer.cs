@@ -49,7 +49,7 @@
             this.personBH.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.personBH.Location = new System.Drawing.Point(168, 3);
             this.personBH.Name = "personBH";
-            this.personBH.Size = new System.Drawing.Size(399, 63);
+            this.personBH.Size = new System.Drawing.Size(469, 63);
             this.personBH.TabIndex = 18;
             this.personBH.Text = "PROJECT";
             this.personBH.UseVisualStyleBackColor = false;
