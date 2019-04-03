@@ -64,5 +64,11 @@ namespace Mini
             GroupProject gp = new GroupProject();
             gp.Show();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            GroupEvaluation GE = new GroupEvaluation();
+            GE.Show();
+        }
     }
 }
