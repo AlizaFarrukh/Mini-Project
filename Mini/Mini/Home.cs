@@ -52,5 +52,17 @@ namespace Mini
             Group G = new Group();
             G.Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ProjecAdvisor pj = new ProjecAdvisor();
+            pj.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            GroupProject gp = new GroupProject();
+            gp.Show();
+        }
     }
 }

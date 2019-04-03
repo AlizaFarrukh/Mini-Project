@@ -71,6 +71,12 @@
     <Compile Include="Group.Designer.cs">
       <DependentUpon>Group.cs</DependentUpon>
     </Compile>
+    <Compile Include="GroupProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GroupProject.Designer.cs">
+      <DependentUpon>GroupProject.cs</DependentUpon>
+    </Compile>
     <Compile Include="GroupStudent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Group.resx">
       <DependentUpon>Group.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GroupProject.resx">
+      <DependentUpon>GroupProject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GroupStudent.resx">
       <DependentUpon>GroupStudent.cs</DependentUpon>
