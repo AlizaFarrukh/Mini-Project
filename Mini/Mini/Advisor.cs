@@ -283,5 +283,10 @@ namespace Mini
             DisplayData();
            
         }
+
+        private void SALARYT_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

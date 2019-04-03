@@ -72,7 +72,7 @@
             this.addB.BackColor = System.Drawing.Color.Teal;
             this.addB.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold);
             this.addB.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.addB.Location = new System.Drawing.Point(247, 222);
+            this.addB.Location = new System.Drawing.Point(232, 231);
             this.addB.Name = "addB";
             this.addB.Size = new System.Drawing.Size(141, 35);
             this.addB.TabIndex = 28;
@@ -85,9 +85,9 @@
             this.button1.BackColor = System.Drawing.Color.Teal;
             this.button1.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(567, 109);
+            this.button1.Location = new System.Drawing.Point(613, 109);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(141, 35);
+            this.button1.Size = new System.Drawing.Size(141, 61);
             this.button1.TabIndex = 29;
             this.button1.Text = "MANAGE GROUP";
             this.button1.UseVisualStyleBackColor = false;

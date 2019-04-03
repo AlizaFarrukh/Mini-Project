@@ -173,6 +173,7 @@
             this.SALARYT.Name = "SALARYT";
             this.SALARYT.Size = new System.Drawing.Size(100, 20);
             this.SALARYT.TabIndex = 14;
+            this.SALARYT.TextChanged += new System.EventHandler(this.SALARYT_TextChanged);
             this.SALARYT.Validating += new System.ComponentModel.CancelEventHandler(this.SALARYT_Validating);
             // 
             // GENT
