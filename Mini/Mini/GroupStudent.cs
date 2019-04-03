@@ -43,7 +43,7 @@ namespace Mini
         string status;
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-           if (checkBox1.Checked)
+            if (checkBox1.Checked)
             {
                 status = "Active";
             }
@@ -51,18 +51,18 @@ namespace Mini
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (groupid.Text != "" && regno.Text != "" )
+            if (groupid.Text != "" && regno.Text != "")
             {
 
                 cmd = new SqlCommand("insert into GroupStudent(GroupId,StudentId,Status,AssignmentDate) values((SELECT Id FROM [Group] WHERE Id = @groupid),(SELECT Id FROM Student WHERE RegistrationNo = @regno),(SELECT Id FROM Lookup WHERE Category = 'STATUS' AND value =@sta) , @DESP)", conn);
                 conn.Open();
-                
+
                 cmd.Parameters.AddWithValue("@GROUPID", groupid.Text);
                 cmd.Parameters.AddWithValue("@regno", regno.Text);
                 cmd.Parameters.AddWithValue("@DESP", DateTime.Now);
                 cmd.Parameters.AddWithValue("@sta", status);
                 cmd.ExecuteNonQuery();
-               
+
                 conn.Close();
                 DisplayData();
                 MessageBox.Show("Data Inserted Successfully");
@@ -73,7 +73,7 @@ namespace Mini
 
         private void groupid_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void groupid_Validating(object sender, CancelEventArgs e)
@@ -116,6 +116,24 @@ namespace Mini
 
         private void button1_Click(object sender, EventArgs e)
         {
+           
             
+                cmd = new SqlCommand("delete GroupStudent where GroupId=@id and StudentId = (SELECT RegistrationNo FROM Student WHERE Id = @stu)", conn);
+                conn.Open();
+                cmd.Parameters.AddWithValue("@id", groupid );
+                cmd.Parameters.AddWithValue("@stu", regno);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                MessageBox.Show("Data Deleted Successfully!");
+                DisplayData();
+                
+            
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+          
+        }
     }
 }

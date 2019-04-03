@@ -49,7 +49,7 @@
             this.personBH.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.personBH.Font = new System.Drawing.Font("Monotype Corsiva", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.personBH.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.personBH.Location = new System.Drawing.Point(129, 12);
+            this.personBH.Location = new System.Drawing.Point(195, 12);
             this.personBH.Name = "personBH";
             this.personBH.Size = new System.Drawing.Size(494, 63);
             this.personBH.TabIndex = 20;
@@ -175,6 +175,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(414, 243);
             this.dataGridView1.TabIndex = 36;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // GroupStudent
             // 

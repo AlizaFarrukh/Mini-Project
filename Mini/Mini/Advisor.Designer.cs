@@ -135,7 +135,7 @@
             // 
             // FNT
             // 
-            this.FNT.Location = new System.Drawing.Point(169, 72);
+            this.FNT.Location = new System.Drawing.Point(169, 71);
             this.FNT.Name = "FNT";
             this.FNT.Size = new System.Drawing.Size(100, 20);
             this.FNT.TabIndex = 8;
@@ -243,9 +243,9 @@
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.MintCream;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(296, 72);
+            this.dataGridView1.Location = new System.Drawing.Point(353, 72);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(744, 259);
+            this.dataGridView1.Size = new System.Drawing.Size(687, 259);
             this.dataGridView1.TabIndex = 23;
             // 
             // DOBT
