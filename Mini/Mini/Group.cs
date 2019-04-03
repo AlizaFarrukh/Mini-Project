@@ -36,7 +36,7 @@ namespace Mini
 
 
             conn.Open();
-            string p = "insert into Group (Created_On) values( '" + DateTime.Parse(createdOn.Text) + "')";
+            string p = "insert into [Group] (Created_On) values( '" + DateTime.Parse(createdOn.Text) + "')";
 
             SqlCommand cmd = new SqlCommand(p, conn);
             cmd.ExecuteNonQuery();
@@ -50,6 +50,12 @@ namespace Mini
 
 
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            GroupStudent st = new GroupStudent();
+            st.Show();
         }
     }
 }

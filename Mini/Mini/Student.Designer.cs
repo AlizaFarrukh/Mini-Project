@@ -114,7 +114,7 @@
             // 
             // firstNameT
             // 
-            this.firstNameT.Location = new System.Drawing.Point(174, 71);
+            this.firstNameT.Location = new System.Drawing.Point(187, 72);
             this.firstNameT.Name = "firstNameT";
             this.firstNameT.Size = new System.Drawing.Size(100, 20);
             this.firstNameT.TabIndex = 8;
@@ -122,7 +122,7 @@
             // 
             // LastNameT
             // 
-            this.LastNameT.Location = new System.Drawing.Point(174, 119);
+            this.LastNameT.Location = new System.Drawing.Point(187, 119);
             this.LastNameT.Name = "LastNameT";
             this.LastNameT.Size = new System.Drawing.Size(100, 20);
             this.LastNameT.TabIndex = 9;
@@ -130,7 +130,7 @@
             // 
             // contactT
             // 
-            this.contactT.Location = new System.Drawing.Point(174, 202);
+            this.contactT.Location = new System.Drawing.Point(187, 201);
             this.contactT.Name = "contactT";
             this.contactT.Size = new System.Drawing.Size(100, 20);
             this.contactT.TabIndex = 10;
@@ -139,7 +139,7 @@
             // 
             // emailT
             // 
-            this.emailT.Location = new System.Drawing.Point(174, 239);
+            this.emailT.Location = new System.Drawing.Point(187, 239);
             this.emailT.Name = "emailT";
             this.emailT.Size = new System.Drawing.Size(100, 20);
             this.emailT.TabIndex = 11;
@@ -152,9 +152,9 @@
             this.genderT.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.genderT.Location = new System.Drawing.Point(174, 317);
+            this.genderT.Location = new System.Drawing.Point(181, 317);
             this.genderT.Name = "genderT";
-            this.genderT.Size = new System.Drawing.Size(100, 21);
+            this.genderT.Size = new System.Drawing.Size(106, 21);
             this.genderT.TabIndex = 14;
             this.genderT.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -209,7 +209,7 @@
             // 
             // regNoT
             // 
-            this.regNoT.Location = new System.Drawing.Point(174, 156);
+            this.regNoT.Location = new System.Drawing.Point(187, 156);
             this.regNoT.Name = "regNoT";
             this.regNoT.Size = new System.Drawing.Size(100, 20);
             this.regNoT.TabIndex = 22;
@@ -240,7 +240,7 @@
             // 
             // dobT
             // 
-            this.dobT.Location = new System.Drawing.Point(174, 278);
+            this.dobT.Location = new System.Drawing.Point(181, 278);
             this.dobT.Name = "dobT";
             this.dobT.Size = new System.Drawing.Size(106, 20);
             this.dobT.TabIndex = 26;
