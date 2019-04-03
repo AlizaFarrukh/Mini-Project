@@ -100,6 +100,7 @@
             this.totalmarksTB.Name = "totalmarksTB";
             this.totalmarksTB.Size = new System.Drawing.Size(100, 20);
             this.totalmarksTB.TabIndex = 25;
+            this.totalmarksTB.TextChanged += new System.EventHandler(this.totalmarksTB_TextChanged);
             this.totalmarksTB.Validating += new System.ComponentModel.CancelEventHandler(this.totalmarksTB_Validating);
             // 
             // weightageTB

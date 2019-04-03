@@ -21,6 +21,15 @@ namespace Mini
         {
             InitializeComponent();
         }
+        private void DisplayData()
+        {
+
+            DataTable dt = new DataTable();
+            prog = new SqlDataAdapter("select * FROM GroupStudent", conn);
+            prog.Fill(dt);
+            dataGridView1.DataSource = dt;
+            conn.Close();
+        }
 
         private void label4_Click(object sender, EventArgs e)
         {
@@ -31,14 +40,34 @@ namespace Mini
         {
 
         }
-
+        string status;
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-
+           if (checkBox1.Checked)
+            {
+                status = "Active";
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (groupid.Text != "" && regno.Text != "" )
+            {
+
+                cmd = new SqlCommand("insert into GroupStudent(GroupId,StudentId,Status,AssignmentDate) values((SELECT Id FROM [Group] WHERE Id = @groupid),(SELECT Id FROM Student WHERE RegistrationNo = @regno),(SELECT Id FROM Lookup WHERE Category = 'STATUS' AND value =@sta) , @DESP)", conn);
+                conn.Open();
+                
+                cmd.Parameters.AddWithValue("@GROUPID", groupid.Text);
+                cmd.Parameters.AddWithValue("@regno", regno.Text);
+                cmd.Parameters.AddWithValue("@DESP", DateTime.Now);
+                cmd.Parameters.AddWithValue("@sta", status);
+                cmd.ExecuteNonQuery();
+               
+                conn.Close();
+                DisplayData();
+                MessageBox.Show("Data Inserted Successfully");
+
+            }
 
         }
 
@@ -49,15 +78,14 @@ namespace Mini
 
         private void groupid_Validating(object sender, CancelEventArgs e)
         {
-            Regex validator = new Regex("^[0-9]$");
-            string match = validator.Match(groupid.Text).Value.ToString();
-            if (match.Length != 11)
+            if (!Regex.Match(groupid.Text, "^[0-9]$").Success)
             {
-                MessageBox.Show("invalid phone number. Enter 0-11 digits");
-                groupid.Focus();
+
+                MessageBox.Show("Please Enter digits only");
+                groupid.SelectAll();
+                e.Cancel = true;
 
             }
-
         }
 
         private void regno_Validating(object sender, CancelEventArgs e)
@@ -71,5 +99,23 @@ namespace Mini
 
             }
         }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                status = "InActive";
+            }
+
+        }
+
+        private void GroupStudent_Load(object sender, EventArgs e)
+        {
+            DisplayData();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
     }
 }

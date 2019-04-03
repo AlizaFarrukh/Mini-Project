@@ -128,6 +128,7 @@
             this.checkBox2.TabIndex = 32;
             this.checkBox2.Text = "InActive";
             this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // addB
             // 
@@ -152,6 +153,7 @@
             this.button1.TabIndex = 34;
             this.button1.Text = "DELETE";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -193,6 +195,7 @@
             this.Controls.Add(this.personBH);
             this.Name = "GroupStudent";
             this.Text = "Manage Student Groups";
+            this.Load += new System.EventHandler(this.GroupStudent_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

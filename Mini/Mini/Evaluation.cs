@@ -157,5 +157,10 @@ namespace Mini
         {
             DisplayData();
         }
+
+        private void totalmarksTB_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
