@@ -71,7 +71,7 @@ namespace Mini
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 MessageBox.Show("Data Added Successfully", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                DisplayData();
             }
             else
                 MessageBox.Show("Enter Data to insert");

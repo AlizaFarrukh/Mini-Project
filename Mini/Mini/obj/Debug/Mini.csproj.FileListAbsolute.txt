@@ -26,3 +26,4 @@ C:\Users\Aliza Farrukh\Documents\GitHub\Mini-Project\Mini\Mini\obj\Debug\Mini.Gr
 C:\Users\Aliza Farrukh\Documents\GitHub\Mini-Project\Mini\Mini\obj\Debug\Mini.GroupStudent.resources
 C:\Users\Aliza Farrukh\Documents\GitHub\Mini-Project\Mini\Mini\obj\Debug\Mini.ProjecAdvisor.resources
 C:\Users\Aliza Farrukh\Documents\GitHub\Mini-Project\Mini\Mini\obj\Debug\Mini.GroupProject.resources
+C:\Users\Aliza Farrukh\Documents\GitHub\Mini-Project\Mini\Mini\obj\Debug\Mini.GroupEvaluation.resources

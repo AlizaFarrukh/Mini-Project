@@ -73,9 +73,9 @@
             this.evalid.ForeColor = System.Drawing.Color.Teal;
             this.evalid.Location = new System.Drawing.Point(135, 167);
             this.evalid.Name = "evalid";
-            this.evalid.Size = new System.Drawing.Size(110, 19);
+            this.evalid.Size = new System.Drawing.Size(127, 19);
             this.evalid.TabIndex = 25;
-            this.evalid.Text = "Evaluation ID";
+            this.evalid.Text = "Evaluation Title";
             // 
             // gid
             // 
@@ -98,6 +98,9 @@
             // 
             // groupid
             // 
+            this.groupid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupid.FormattingEnabled = true;
             this.groupid.Location = new System.Drawing.Point(271, 126);
             this.groupid.Name = "groupid";
@@ -130,6 +133,7 @@
             this.add.TabIndex = 47;
             this.add.Text = "ADD";
             this.add.UseVisualStyleBackColor = false;
+            this.add.Click += new System.EventHandler(this.add_Click);
             // 
             // delete
             // 
@@ -154,6 +158,7 @@
             this.update.TabIndex = 49;
             this.update.Text = "UPDATE";
             this.update.UseVisualStyleBackColor = false;
+            this.update.Click += new System.EventHandler(this.update_Click);
             // 
             // GroupEvaluation
             // 
@@ -175,6 +180,7 @@
             this.ForeColor = System.Drawing.Color.Teal;
             this.Name = "GroupEvaluation";
             this.Text = "GroupEvaluation";
+            this.Load += new System.EventHandler(this.GroupEvaluation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
