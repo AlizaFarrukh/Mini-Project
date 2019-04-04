@@ -47,6 +47,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.personBH = new System.Windows.Forms.Button();
             this.dobT = new System.Windows.Forms.DateTimePicker();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -245,12 +246,26 @@
             this.dobT.Size = new System.Drawing.Size(106, 20);
             this.dobT.TabIndex = 26;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Teal;
+            this.button1.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button1.Location = new System.Drawing.Point(750, 18);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(141, 35);
+            this.button1.TabIndex = 27;
+            this.button1.Text = "Home";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Student
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MintCream;
             this.ClientSize = new System.Drawing.Size(927, 494);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dobT);
             this.Controls.Add(this.personBH);
             this.Controls.Add(this.label1);
@@ -301,6 +316,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button personBH;
         private System.Windows.Forms.DateTimePicker dobT;
+        private System.Windows.Forms.Button button1;
     }
 }
 

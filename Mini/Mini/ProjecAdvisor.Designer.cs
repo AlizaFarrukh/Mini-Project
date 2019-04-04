@@ -40,6 +40,7 @@
             this.add = new System.Windows.Forms.Button();
             this.title = new System.Windows.Forms.ComboBox();
             this.id = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -169,12 +170,26 @@
             this.id.Size = new System.Drawing.Size(163, 21);
             this.id.TabIndex = 40;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Teal;
+            this.button1.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button1.Location = new System.Drawing.Point(664, 30);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(113, 37);
+            this.button1.TabIndex = 41;
+            this.button1.Text = "Home";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // ProjecAdvisor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MintCream;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.id);
             this.Controls.Add(this.title);
             this.Controls.Add(this.add);
@@ -211,5 +226,6 @@
         private System.Windows.Forms.Button add;
         private System.Windows.Forms.ComboBox title;
         private System.Windows.Forms.ComboBox id;
+        private System.Windows.Forms.Button button1;
     }
 }

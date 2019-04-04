@@ -51,24 +51,43 @@ namespace Mini
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (groupid.Text != "" && regno.Text != "")
+            conn.Open();
+            cmd= new SqlCommand("SELECT COUNT(1) FROM [GroupStudent] WHERE (GroupId = '" + groupid.Text+" ')", conn);
+            object countstd1 = cmd.ExecuteScalar();
+            int countstd = 0;
+            if (!(countstd1== DBNull.Value))
             {
-
-                cmd = new SqlCommand("insert into GroupStudent(GroupId,StudentId,Status,AssignmentDate) values((SELECT Id FROM [Group] WHERE Id = @groupid),(SELECT Id FROM Student WHERE RegistrationNo = @regno),(SELECT Id FROM Lookup WHERE Category = 'STATUS' AND value =@sta) , @DESP)", conn);
-                conn.Open();
-
-                cmd.Parameters.AddWithValue("@GROUPID", groupid.Text);
-                cmd.Parameters.AddWithValue("@regno", regno.Text);
-                cmd.Parameters.AddWithValue("@DESP", DateTime.Now);
-                cmd.Parameters.AddWithValue("@sta", status);
-                cmd.ExecuteNonQuery();
-
-                conn.Close();
-                DisplayData();
-                MessageBox.Show("Data Inserted Successfully");
-
+                countstd = Convert.ToInt32(countstd1);
             }
 
+            conn.Close();
+            if (countstd == 4)
+            {
+                
+                MessageBox.Show("No more students can be added because this group already contains 4 students.");
+            }
+
+            else
+            {
+
+                if (groupid.Text != "" && regno.Text != "")
+                {
+
+                    cmd = new SqlCommand("insert into GroupStudent(GroupId,StudentId,Status,AssignmentDate) values((SELECT Id FROM [Group] WHERE Id = @groupid),(SELECT Id FROM Student WHERE RegistrationNo = @regno),(SELECT Id FROM Lookup WHERE Category = 'STATUS' AND value =@sta) , @DESP)", conn);
+                    conn.Open();
+
+                    cmd.Parameters.AddWithValue("@GROUPID", groupid.Text);
+                    cmd.Parameters.AddWithValue("@regno", regno.Text);
+                    cmd.Parameters.AddWithValue("@DESP", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@sta", status);
+                    cmd.ExecuteNonQuery();
+
+                    conn.Close();
+                    DisplayData();
+                    MessageBox.Show("Data Inserted Successfully");
+
+                }
+            }
         }
 
         private void groupid_TextChanged(object sender, EventArgs e)
@@ -112,6 +131,21 @@ namespace Mini
         private void GroupStudent_Load(object sender, EventArgs e)
         {
             DisplayData();
+            SqlDataAdapter s = new SqlDataAdapter("Select Id FROM [Group]", conn);
+            DataTable dt = new DataTable();
+            s.Fill(dt);
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+
+                groupid.Items.Add(dt.Rows[i]["Id"]);
+            }
+            SqlDataAdapter sd = new SqlDataAdapter("Select RegistrationNo FROM Student", conn);
+            DataTable d = new DataTable();
+            sd.Fill(d);
+            for (int i = 0; i < d.Rows.Count; i++)
+            {
+                regno.Items.Add(d.Rows[i]["RegistrationNo"]);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -134,6 +168,12 @@ namespace Mini
         {
            
           
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Home h = new Home();
+            h.Show();
         }
     }
 }

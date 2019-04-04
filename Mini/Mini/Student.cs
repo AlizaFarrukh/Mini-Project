@@ -79,42 +79,54 @@ namespace Mini
         private void addB_Click(object sender, EventArgs e)
         {
             conn.Open();
-
-            string gend = genderT.SelectedItem.ToString();
-
-            string genderValue = "select Id FROM Lookup WHERE Category = 'Gender' AND value ='" + gend + "'";
-            SqlCommand genderInt = new SqlCommand(genderValue, conn);
-            int gendr = 0;
-            SqlDataReader reader = genderInt.ExecuteReader();
-            
-            while (reader.Read())
-            {
-                gendr = int.Parse(reader[0].ToString());
-            }
-
-           
-
-            string per = "INSERT into Person(FirstName , LastName , Contact , Email , DateOfBirth , Gender) values ('" + firstNameT.Text + "' , '" + LastNameT.Text + "' , '" + contactT.Text + "' , '" + emailT.Text + "' , '" + DateTime.Parse(dobT.Text) + "' , '" + gendr + "')";
-
-            SqlCommand person = new SqlCommand(per, conn);
-            int ii = person.ExecuteNonQuery();
-            int value1 = 0;
-            string query = "Select Id from Person where (Id = SCOPE_IDENTITY())";
-            SqlCommand cmd = new SqlCommand(query, conn);
-            var val = cmd.ExecuteScalar().ToString();
-            value1 = int.Parse(val);
-            string q = "insert into Student values('" + value1 + "','" + regNoT.Text.ToString() + "')";
-            SqlCommand cmd1 = new SqlCommand(q, conn);
-            int ji = cmd1.ExecuteNonQuery();
-           
-            MessageBox.Show("Student is registered");
-            
-               
-           
-            DisplayData();
+            SqlCommand check_User_Name = new SqlCommand("SELECT COUNT(RegistrationNo) FROM [Student] WHERE (RegistrationNo = @user)", conn);
+            check_User_Name.Parameters.AddWithValue("@user", regNoT.Text);
+            int UserExist = (int)check_User_Name.ExecuteScalar();
             conn.Close();
+            if (UserExist > 0)
+            {
+                MessageBox.Show("This Registration Number is already registered");
+            }
+            else
+            {
+
+                conn.Open();
+
+                string gend = genderT.SelectedItem.ToString();
+
+                string genderValue = "select Id FROM Lookup WHERE Category = 'Gender' AND value ='" + gend + "'";
+                SqlCommand genderInt = new SqlCommand(genderValue, conn);
+                int gendr = 0;
+                SqlDataReader reader = genderInt.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    gendr = int.Parse(reader[0].ToString());
+                }
 
 
+
+                string per = "INSERT into Person(FirstName , LastName , Contact , Email , DateOfBirth , Gender) values ('" + firstNameT.Text + "' , '" + LastNameT.Text + "' , '" + contactT.Text + "' , '" + emailT.Text + "' , '" + DateTime.Parse(dobT.Text) + "' , '" + gendr + "')";
+
+                SqlCommand person = new SqlCommand(per, conn);
+                int ii = person.ExecuteNonQuery();
+                int value1 = 0;
+                string query = "Select Id from Person where (Id = SCOPE_IDENTITY())";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                var val = cmd.ExecuteScalar().ToString();
+                value1 = int.Parse(val);
+                string q = "insert into Student values('" + value1 + "','" + regNoT.Text.ToString() + "')";
+                SqlCommand cmd1 = new SqlCommand(q, conn);
+                int ji = cmd1.ExecuteNonQuery();
+
+                MessageBox.Show("Student is registered");
+
+
+
+                DisplayData();
+                conn.Close();
+
+            }
         }
 
         private void updateB_Click(object sender, EventArgs e)
@@ -284,6 +296,12 @@ namespace Mini
                 e.Cancel = true;
 
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Home h = new Home();
+            h.Show();
         }
     }
 }

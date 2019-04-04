@@ -52,23 +52,32 @@ namespace Mini
 
         private void add_Click(object sender, EventArgs e)
         {
-            if (groupid.Text != "" && projectid.Text != "")
-            {
-                conn.Open();
+           
+           
+                if (groupid.Text != "" && projectid.Text != "")
+                {
+                    conn.Open();
 
 
-                string q = "INSERT into GroupProject(ProjectId,GroupId,AssignmentDate) VALUES (  (Select Id FROM Project WHERE Title = '" + projectid.Text + "'), (SELECT Id FROM [Group] WHERE Id = '" + groupid.Text + "'), '" + DateTime.Now + "')";
+                    string q = "INSERT into GroupProject(ProjectId,GroupId,AssignmentDate) VALUES (  (Select Id FROM Project WHERE Title = '" + projectid.Text + "'), (SELECT Id FROM [Group] WHERE Id = '" + groupid.Text + "'), '" + DateTime.Now + "')";
 
-                SqlCommand cmd = new SqlCommand(q, conn);
-                
-                cmd.ExecuteNonQuery();
-                conn.Close();
-                MessageBox.Show("Data Added Successfully", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                DisplayData();
+                    SqlCommand cmd = new SqlCommand(q, conn);
 
-            }
-            else
-                MessageBox.Show("Enter Data to insert");
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    MessageBox.Show("Data Added Successfully", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DisplayData();
+
+                }
+                else
+                    MessageBox.Show("Enter Data to insert");
+            
+        }
+
+        private void addB_Click(object sender, EventArgs e)
+        {
+            Home h = new Home();
+            h.Show();
         }
     }
  }

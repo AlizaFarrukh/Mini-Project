@@ -82,5 +82,11 @@ namespace Mini
         {
             
         }
+
+        private void addB_Click(object sender, EventArgs e)
+        {
+            Home h = new Home();
+            h.Show();
+        }
     }
 }

@@ -31,10 +31,10 @@ namespace Mini
 
         private void NameTB_Validating(object sender, CancelEventArgs e)
         {
-            if (!Regex.Match(NameTB.Text, "^([A-Za-z])+( [A-Za-z]+)$").Success )
+            if (!Regex.Match(NameTB.Text, "^[A-Z][a-zA-Z]*$").Success)
             {
-                
-                MessageBox.Show("Please Enter Valid Name.  It must start with Capital Letter");
+                // first name was incorrect
+                MessageBox.Show("Please Enter Valid First name.  it must start with Capital Letter");
                 NameTB.Focus();
                 e.Cancel = true;
 
@@ -82,24 +82,39 @@ namespace Mini
         }
         private void AddB_Click(object sender, EventArgs e)
         {
-            if (NameTB.Text != "" && totalmarksTB.Text != "" && weightageTB.Text != "")
+            conn.Open();
+            SqlCommand check_User_Name = new SqlCommand("SELECT COUNT(*) FROM [Evaluation] WHERE (Name = @user and TotalMarks= @marks and TotalWeightage = @weightage)", conn);
+            check_User_Name.Parameters.AddWithValue("@user", NameTB.Text);
+            check_User_Name.Parameters.AddWithValue("@marks", totalmarksTB.Text);
+            check_User_Name.Parameters.AddWithValue("@weightage", weightageTB.Text);
+            int UserExist = (int)check_User_Name.ExecuteScalar();
+            conn.Close();
+            if (UserExist > 0)
             {
-                cmd = new SqlCommand("insert into Evaluation(Name, TotalMarks, TotalWeightage) values(@name,@totalm,@weightage)", conn);
-                conn.Open();
-                cmd.Parameters.AddWithValue("@name", NameTB.Text);
-                cmd.Parameters.AddWithValue("@totalm", totalmarksTB.Text);
-                cmd.Parameters.AddWithValue("@weightage", weightageTB.Text);
-
-                cmd.ExecuteNonQuery();
-                conn.Close();
-                MessageBox.Show("Data Inserted Successfully");
-                DisplayData();
-                ClearData();
-
+                MessageBox.Show("This Evaluation is already inserted");
             }
             else
             {
-                MessageBox.Show("Please Enter Details!");
+                if (NameTB.Text != "" && totalmarksTB.Text != "" && weightageTB.Text != "")
+                {
+                    conn.Open();
+                    cmd = new SqlCommand("insert into Evaluation(Name, TotalMarks, TotalWeightage) values(@name,@totalm,@weightage)", conn);
+                    
+                    cmd.Parameters.AddWithValue("@name", NameTB.Text);
+                    cmd.Parameters.AddWithValue("@totalm", totalmarksTB.Text);
+                    cmd.Parameters.AddWithValue("@weightage", weightageTB.Text);
+
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    MessageBox.Show("Data Inserted Successfully");
+                    DisplayData();
+                    ClearData();
+
+                }
+                else
+                {
+                    MessageBox.Show("Please Enter Details!");
+                }
             }
         }
 
@@ -161,6 +176,12 @@ namespace Mini
         private void totalmarksTB_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Home h = new Home();
+            h.Show();
         }
     }
 }

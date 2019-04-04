@@ -111,6 +111,7 @@ namespace Mini
 
         private void adda_b_Click(object sender, EventArgs e)
         {
+          
             conn.Open();
             string gender = GENT.SelectedItem.ToString();
             string genId = "select Id FROM Lookup WHERE Category = 'Gender' AND value ='" + gender + "'";
@@ -287,6 +288,12 @@ namespace Mini
         private void SALARYT_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Home h = new Home();
+            h.Show();
         }
     }
 }

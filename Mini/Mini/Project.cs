@@ -56,23 +56,40 @@ namespace Mini
 
         private void AddB_Click(object sender, EventArgs e)
         {
-            if (titleTB.Text != "" && descTb.Text != "" )
-            {
-                cmd = new SqlCommand("insert into Project(Description,Title) values(@description,@title)", conn);
-                conn.Open();
-                cmd.Parameters.AddWithValue("@description", descTb.Text);
-                cmd.Parameters.AddWithValue("@title", titleTB.Text);
-                
-                cmd.ExecuteNonQuery();
-                conn.Close();
-                MessageBox.Show("Data Inserted Successfully");
-                DisplayData();
-                ClearData();
 
+            conn.Open();
+            SqlCommand check_User_Name = new SqlCommand("SELECT COUNT(*) FROM Project WHERE (Title = @user  )", conn);
+            check_User_Name.Parameters.AddWithValue("@user", titleTB.Text);
+          
+      
+            int UserExist = (int)check_User_Name.ExecuteScalar();
+            conn.Close();
+            if (UserExist > 0)
+            {
+                MessageBox.Show("This Project Already exists");
             }
             else
             {
-                MessageBox.Show("Please Enter Details!");
+                if (titleTB.Text != "" && descTb.Text != "")
+                {
+                    conn.Open();
+                    cmd = new SqlCommand("insert into Project(Description,Title) values(@description,@title)", conn);
+                    
+                    cmd.Parameters.AddWithValue("@description", descTb.Text);
+                    cmd.Parameters.AddWithValue("@title", titleTB.Text);
+
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    MessageBox.Show("Data Inserted Successfully");
+                    DisplayData();
+                    ClearData();
+
+                }
+                else
+                {
+                    MessageBox.Show("Please Enter Details!");
+                }
+               
             }
         }
 
@@ -140,6 +157,12 @@ namespace Mini
         private void titleTB_Validating(object sender, CancelEventArgs e)
         {
             
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Home h = new Home();
+            h.Show();
         }
     }
 }

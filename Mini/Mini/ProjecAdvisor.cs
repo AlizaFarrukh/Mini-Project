@@ -56,25 +56,50 @@ namespace Mini
 
         private void add_Click(object sender, EventArgs e)
         {
-            if (id.Text != "")
+            conn.Open();
+            cmd = new SqlCommand("SELECT COUNT(1) FROM ProjectAdvisor WHERE (AdvisorId = '" + id.Text + " ')", conn);
+            object countstd1 = cmd.ExecuteScalar();
+            int countstd = 0;
+            if (!(countstd1 == DBNull.Value))
             {
-                conn.Open();
-
-
-                string q = "INSERT into ProjectAdvisor(AdvisorId, ProjectId, AdvisorRole, AssignmentDate) VALUES ( (SELECT Id FROM Advisor WHERE Advisor.Id = '" + id.Text + "' ), (Select Id FROM Project WHERE Title = '" + title.Text + "'), (SELECT Id FROM Lookup WHERE Category = 'ADVISOR_ROLE' AND Value = '" + role.Text + "'), '" + DateTime.Now + "')";
-                
-                SqlCommand cmd = new SqlCommand(q, conn);
-               
-
-
-
-                cmd.ExecuteNonQuery();
-                conn.Close();
-                MessageBox.Show("Data Added Successfully", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                DisplayData();
+                countstd = Convert.ToInt32(countstd1);
             }
+
+            conn.Close();
+            if (countstd == 3)
+            {
+
+                MessageBox.Show("No more projects can be advised by this advisor because advisor is already advising 3 projects.");
+            }
+
             else
-                MessageBox.Show("Enter Data to insert");
+            {
+                if (id.Text != "" && title.Text != "" && role.Text != "")
+                {
+                    conn.Open();
+
+
+                    string q = "INSERT into ProjectAdvisor(AdvisorId, ProjectId, AdvisorRole, AssignmentDate) VALUES ( (SELECT Id FROM Advisor WHERE Advisor.Id = '" + id.Text + "' ), (Select Id FROM Project WHERE Title = '" + title.Text + "'), (SELECT Id FROM Lookup WHERE Category = 'ADVISOR_ROLE' AND Value = '" + role.Text + "'), '" + DateTime.Now + "')";
+
+                    SqlCommand cmd = new SqlCommand(q, conn);
+
+
+
+
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    MessageBox.Show("Data Added Successfully", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DisplayData();
+                }
+                else
+                    MessageBox.Show("Enter Data to insert");
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Home h = new Home();
+            h.Show();
         }
     }
 }

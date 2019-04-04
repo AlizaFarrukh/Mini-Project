@@ -39,6 +39,7 @@
             this.add = new System.Windows.Forms.Button();
             this.delete = new System.Windows.Forms.Button();
             this.update = new System.Windows.Forms.Button();
+            this.addB = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,7 +61,7 @@
             this.marks.AutoSize = true;
             this.marks.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold);
             this.marks.ForeColor = System.Drawing.Color.Teal;
-            this.marks.Location = new System.Drawing.Point(135, 209);
+            this.marks.Location = new System.Drawing.Point(65, 209);
             this.marks.Name = "marks";
             this.marks.Size = new System.Drawing.Size(127, 19);
             this.marks.TabIndex = 24;
@@ -71,7 +72,7 @@
             this.evalid.AutoSize = true;
             this.evalid.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold);
             this.evalid.ForeColor = System.Drawing.Color.Teal;
-            this.evalid.Location = new System.Drawing.Point(135, 167);
+            this.evalid.Location = new System.Drawing.Point(65, 167);
             this.evalid.Name = "evalid";
             this.evalid.Size = new System.Drawing.Size(127, 19);
             this.evalid.TabIndex = 25;
@@ -82,7 +83,7 @@
             this.gid.AutoSize = true;
             this.gid.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold);
             this.gid.ForeColor = System.Drawing.Color.Teal;
-            this.gid.Location = new System.Drawing.Point(135, 128);
+            this.gid.Location = new System.Drawing.Point(65, 128);
             this.gid.Name = "gid";
             this.gid.Size = new System.Drawing.Size(76, 19);
             this.gid.TabIndex = 26;
@@ -91,7 +92,7 @@
             // evaluation
             // 
             this.evaluation.FormattingEnabled = true;
-            this.evaluation.Location = new System.Drawing.Point(271, 168);
+            this.evaluation.Location = new System.Drawing.Point(209, 167);
             this.evaluation.Name = "evaluation";
             this.evaluation.Size = new System.Drawing.Size(163, 21);
             this.evaluation.TabIndex = 43;
@@ -102,14 +103,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupid.FormattingEnabled = true;
-            this.groupid.Location = new System.Drawing.Point(271, 126);
+            this.groupid.Location = new System.Drawing.Point(209, 128);
             this.groupid.Name = "groupid";
             this.groupid.Size = new System.Drawing.Size(163, 21);
             this.groupid.TabIndex = 44;
             // 
             // obtained
             // 
-            this.obtained.Location = new System.Drawing.Point(271, 210);
+            this.obtained.Location = new System.Drawing.Point(209, 210);
             this.obtained.Name = "obtained";
             this.obtained.Size = new System.Drawing.Size(163, 20);
             this.obtained.TabIndex = 45;
@@ -117,7 +118,7 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(453, 111);
+            this.dataGridView1.Location = new System.Drawing.Point(394, 110);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(414, 243);
             this.dataGridView1.TabIndex = 46;
@@ -127,7 +128,7 @@
             this.add.BackColor = System.Drawing.Color.Teal;
             this.add.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold);
             this.add.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.add.Location = new System.Drawing.Point(139, 295);
+            this.add.Location = new System.Drawing.Point(69, 283);
             this.add.Name = "add";
             this.add.Size = new System.Drawing.Size(83, 37);
             this.add.TabIndex = 47;
@@ -140,7 +141,7 @@
             this.delete.BackColor = System.Drawing.Color.Teal;
             this.delete.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold);
             this.delete.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.delete.Location = new System.Drawing.Point(364, 295);
+            this.delete.Location = new System.Drawing.Point(305, 283);
             this.delete.Name = "delete";
             this.delete.Size = new System.Drawing.Size(83, 37);
             this.delete.TabIndex = 48;
@@ -152,7 +153,7 @@
             this.update.BackColor = System.Drawing.Color.Teal;
             this.update.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold);
             this.update.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.update.Location = new System.Drawing.Point(258, 295);
+            this.update.Location = new System.Drawing.Point(185, 283);
             this.update.Name = "update";
             this.update.Size = new System.Drawing.Size(83, 37);
             this.update.TabIndex = 49;
@@ -160,12 +161,26 @@
             this.update.UseVisualStyleBackColor = false;
             this.update.Click += new System.EventHandler(this.update_Click);
             // 
+            // addB
+            // 
+            this.addB.BackColor = System.Drawing.Color.Teal;
+            this.addB.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold);
+            this.addB.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.addB.Location = new System.Drawing.Point(658, 41);
+            this.addB.Name = "addB";
+            this.addB.Size = new System.Drawing.Size(114, 35);
+            this.addB.TabIndex = 50;
+            this.addB.Text = "Home";
+            this.addB.UseVisualStyleBackColor = false;
+            this.addB.Click += new System.EventHandler(this.addB_Click);
+            // 
             // GroupEvaluation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MintCream;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.addB);
             this.Controls.Add(this.update);
             this.Controls.Add(this.delete);
             this.Controls.Add(this.add);
@@ -200,5 +215,6 @@
         private System.Windows.Forms.Button add;
         private System.Windows.Forms.Button delete;
         private System.Windows.Forms.Button update;
+        private System.Windows.Forms.Button addB;
     }
 }

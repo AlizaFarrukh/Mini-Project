@@ -57,5 +57,11 @@ namespace Mini
             GroupStudent st = new GroupStudent();
             st.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Home h = new Home();
+            h.Show();
+        }
     }
 }
