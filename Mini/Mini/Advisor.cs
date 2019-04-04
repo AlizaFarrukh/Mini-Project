@@ -220,14 +220,14 @@ namespace Mini
         private void dataGridView1_CellContentClick_2(object sender, DataGridViewCellEventArgs e)
         {
             Id = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-            FNT.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-            LNT.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-            CONT.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-            EMAILT.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
-           DOBT.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
-            GENT.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
-            DESGT.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
-            SALARYT.Text = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
+         //   FNT.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+           // LNT.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+           // CONT.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+         //   EMAILT.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+           //DOBT.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+        //    GENT.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
+          //  DESGT.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
+          //  SALARYT.Text = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
 
         }
 

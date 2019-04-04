@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\..\..\..\Downloads\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.VisualBasic.Compatibility" />
     <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -64,6 +67,12 @@
     </Compile>
     <Compile Include="Evaluation.Designer.cs">
       <DependentUpon>Evaluation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GenerateReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GenerateReport.Designer.cs">
+      <DependentUpon>GenerateReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Group.cs">
       <SubType>Form</SubType>
@@ -120,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Evaluation.resx">
       <DependentUpon>Evaluation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GenerateReport.resx">
+      <DependentUpon>GenerateReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Group.resx">
       <DependentUpon>Group.cs</DependentUpon>

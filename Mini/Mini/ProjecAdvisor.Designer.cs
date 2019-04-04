@@ -108,6 +108,7 @@
             this.role.Name = "role";
             this.role.Size = new System.Drawing.Size(163, 21);
             this.role.TabIndex = 34;
+            this.role.SelectedIndexChanged += new System.EventHandler(this.role_SelectedIndexChanged);
             // 
             // dataGridView1
             // 

@@ -101,5 +101,10 @@ namespace Mini
             Home h = new Home();
             h.Show();
         }
+
+        private void role_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

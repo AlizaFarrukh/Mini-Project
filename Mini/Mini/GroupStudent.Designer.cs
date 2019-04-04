@@ -182,7 +182,7 @@
             this.button3.BackColor = System.Drawing.Color.Teal;
             this.button3.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold);
             this.button3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button3.Location = new System.Drawing.Point(778, 12);
+            this.button3.Location = new System.Drawing.Point(760, 26);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(140, 40);
             this.button3.TabIndex = 45;

@@ -27,3 +27,7 @@ C:\Users\Aliza Farrukh\Documents\GitHub\Mini-Project\Mini\Mini\obj\Debug\Mini.Gr
 C:\Users\Aliza Farrukh\Documents\GitHub\Mini-Project\Mini\Mini\obj\Debug\Mini.ProjecAdvisor.resources
 C:\Users\Aliza Farrukh\Documents\GitHub\Mini-Project\Mini\Mini\obj\Debug\Mini.GroupProject.resources
 C:\Users\Aliza Farrukh\Documents\GitHub\Mini-Project\Mini\Mini\obj\Debug\Mini.GroupEvaluation.resources
+C:\Users\Aliza Farrukh\Documents\GitHub\Mini-Project\Mini\Mini\obj\Debug\Mini.GenerateReport.resources
+C:\Users\Aliza Farrukh\Documents\GitHub\Mini-Project\Mini\Mini\bin\Debug\itextsharp.dll
+C:\Users\Aliza Farrukh\Documents\GitHub\Mini-Project\Mini\Mini\bin\Debug\itextsharp.xml
+C:\Users\Aliza Farrukh\Documents\GitHub\Mini-Project\Mini\Mini\obj\Debug\Mini.csproj.CopyComplete

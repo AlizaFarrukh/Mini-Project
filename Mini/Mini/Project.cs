@@ -149,8 +149,8 @@ namespace Mini
         {
 
             Id = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-            titleTB.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-            descTb.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+       //     titleTB.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+         //   descTb.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
             
         }
 

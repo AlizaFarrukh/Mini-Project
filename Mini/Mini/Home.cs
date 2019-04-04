@@ -70,5 +70,11 @@ namespace Mini
             GroupEvaluation GE = new GroupEvaluation();
             GE.Show();
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            GenerateReport GR = new GenerateReport();
+            GR.Show();
+        }
     }
 }
