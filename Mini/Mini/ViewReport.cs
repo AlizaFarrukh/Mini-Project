@@ -115,7 +115,7 @@ namespace Mini
             }
 
         }
-        public void exportGridToPDF2(DataGridView dataGridView,DataGridView dataGridView string filename)
+        public void exportGridToPDF2(DataGridView dataGridView, string filename)
         {
             BaseFont bf = BaseFont.CreateFont(BaseFont.COURIER, BaseFont.CP1252, BaseFont.EMBEDDED);
             PdfPTable pdftable = new PdfPTable(dataGridView.Columns.Count);
