@@ -76,5 +76,11 @@ namespace Mini
             GenerateReport GR = new GenerateReport();
             GR.Show();
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            ViewReport v = new ViewReport();
+            v.Show();
+        }
     }
 }

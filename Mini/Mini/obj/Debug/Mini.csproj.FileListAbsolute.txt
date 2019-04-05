@@ -31,3 +31,4 @@ C:\Users\Aliza Farrukh\Documents\GitHub\Mini-Project\Mini\Mini\obj\Debug\Mini.Ge
 C:\Users\Aliza Farrukh\Documents\GitHub\Mini-Project\Mini\Mini\bin\Debug\itextsharp.dll
 C:\Users\Aliza Farrukh\Documents\GitHub\Mini-Project\Mini\Mini\bin\Debug\itextsharp.xml
 C:\Users\Aliza Farrukh\Documents\GitHub\Mini-Project\Mini\Mini\obj\Debug\Mini.csproj.CopyComplete
+C:\Users\Aliza Farrukh\Documents\GitHub\Mini-Project\Mini\Mini\obj\Debug\Mini.ViewReport.resources
