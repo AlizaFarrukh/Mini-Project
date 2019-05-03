@@ -89,6 +89,7 @@ namespace Mini
 
         private void AddB_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("REPRORT IS GOING TO BE GENERATED NOW");
             exportGridToPDF(Advisors, "Generate pdf");
         }
     }

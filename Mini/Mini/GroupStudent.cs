@@ -121,7 +121,7 @@ namespace Mini
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked)
+            if (checkBox2.Checked)
             {
                 status = "InActive";
             }
